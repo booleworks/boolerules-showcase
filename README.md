@@ -1,6 +1,9 @@
-# Nuxt 3 Minimal Starter
+# BooleRules Showcase
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A little web application to showcase some functionality of the [BooleRules](https://github.com/booleworks/boolerules)
+rule engine.
+
+<a href="https://www.logicng.org"><img src="https://github.com/booleworks/boolerules-showcase/blob/main/assets/screenshot.png?raw=true" alt="logo" width="800"></a>
 
 ## Setup
 
@@ -40,3 +43,10 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Funding
+
+BooleRules development is funded by the [SofDCar project](https://sofdcar.de/):
+
+<a href="https://www.logicng.org"><img src="https://github.com/booleworks/logicng-rs/blob/main/doc/logos/bmwk.png?raw=true" alt="logo" width="200"></a>
+
