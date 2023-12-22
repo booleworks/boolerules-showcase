@@ -73,6 +73,7 @@ export default defineI18nConfig(() => ({
                 computations: 'Slice Computations',
                 avg_time: 'Avg. Slice Computation Time',
                 btn_download: 'Download Result',
+                job_id: 'Job ID',
             },
             slices: {
                 selection: 'Slice Selection',
@@ -258,6 +259,7 @@ export default defineI18nConfig(() => ({
                 computations: 'Slice Berechnungen',
                 avg_time: 'Durschnittliche Zeit pro Slice',
                 btn_download: 'Ergebnis Download',
+                job_id: 'Job ID',
             },
             slices: {
                 selection: 'Slice Auswahl',
