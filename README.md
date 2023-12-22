@@ -5,6 +5,8 @@ rule engine.
 
 <a href="https://www.logicng.org"><img src="https://github.com/booleworks/boolerules-showcase/blob/main/assets/screenshot.png?raw=true" alt="logo" width="800"></a>
 
+⚠ This is a developer preview, pre-alpha, and not ready for production use ⚠
+
 ## Setup
 
 Make sure to install the dependencies:
