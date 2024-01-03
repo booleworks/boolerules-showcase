@@ -7,6 +7,14 @@ rule engine.
 
 ⚠ This is a developer preview, pre-alpha, and not ready for production use ⚠
 
+## Quick Start
+
+Spinning up Redis, the BooleRules backend, and frontent is as easy as downloading the
+[Docker Compose file](https://github.com/booleworks/boolerules/blob/main/compose.yaml)
+and running the command `docker compose up`.  This should expose the Swagger API of the
+backend on port 7070 and the frontend on port 3000. So a `localhost:3000` should give
+you the demonstrator frontend.
+
 ## Setup
 
 Make sure to install the dependencies:
