@@ -19,7 +19,7 @@ import AccordionTab from 'primevue/accordiontab';
 import Sidebar from 'primevue/sidebar'
 
 export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.use(PrimeVue, {ripple: true});
+    nuxtApp.vueApp.use(PrimeVue, { ripple: true });
     nuxtApp.vueApp.component('Button', Button)
     nuxtApp.vueApp.component('FileUpload', FileUpload)
     nuxtApp.vueApp.component('Divider', Divider)

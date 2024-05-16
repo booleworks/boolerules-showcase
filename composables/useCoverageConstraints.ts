@@ -19,5 +19,5 @@ export default () => {
         coverageConstraints.value = [];
     };
 
-    return {getCoverageConstraints, getPairwiseCoverage, clearCoverageConstraints};
+    return { getCoverageConstraints, getPairwiseCoverage, clearCoverageConstraints };
 };

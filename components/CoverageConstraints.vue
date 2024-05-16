@@ -1,12 +1,12 @@
 <template>
     <td>
         <div class="coverage-constraints">
-            <Chips v-model="coverageConstraints" class="add-input"/>
+            <Chips v-model="coverageConstraints" class="add-input" />
         </div>
     </td>
     <td>
         <div class="ml-2 flex align-items-center">
-            <Checkbox v-model="pairwiseCoverage" binary/>
+            <Checkbox v-model="pairwiseCoverage" binary />
             <span class="ml-2">{{ $t('common.pairwiseCoverage') }}</span>
         </div>
     </td>
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 
-const {getCoverageConstraints, getPairwiseCoverage} = useCoverageConstraints();
+const { getCoverageConstraints, getPairwiseCoverage } = useCoverageConstraints();
 
 const coverageConstraints = getCoverageConstraints();
 

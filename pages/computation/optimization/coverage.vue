@@ -1,25 +1,25 @@
 <template>
     <div class="flex-column w-full">
-        <AlgorithmHeader :header="$t('computation.coverage')" boolFeature enumFeature/>
+        <AlgorithmHeader :header="$t('computation.coverage')" boolFeature enumFeature />
 
         <!-- Top panels -->
         <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">
             <AccordionTab :header="$t('common.algdesc')">
-                <p style="width: 60%;" v-html="$t('algo.coverage.desc')"/>
+                <p style="width: 60%;" v-html="$t('algo.coverage.desc')" />
             </AccordionTab>
 
             <AccordionTab :header="$t('slices.selection')">
-                <SliceSelection defaultSliceType="SPLIT" :allowedSliceTypes="['SPLIT', 'ANY', 'ALL']"/>
+                <SliceSelection defaultSliceType="SPLIT" :allowedSliceTypes="['SPLIT', 'ANY', 'ALL']" />
             </AccordionTab>
         </Accordion>
 
         <!-- Computation parameters & button -->
         <ClientOnly>
             <div class="flex-column">
-                <ComputationParams additionalConstraints coverageConstraints/>
+                <ComputationParams additionalConstraints coverageConstraints />
                 <div class="flex">
-                    <Button class="mt-2" :label="$t('algo.coverage.btn_compute')" @click="compute()" icon="pi pi-desktop"
-                            :disabled="!buttonActive"/>
+                    <Button class="mt-2" :label="$t('algo.coverage.btn_compute')" @click="compute()"
+                            icon="pi pi-desktop" :disabled="!buttonActive" />
                 </div>
             </div>
         </ClientOnly>
@@ -27,7 +27,7 @@
         <!-- Result panels -->
         <Accordion :multiple="true" :activeIndex="openResultTabs" class="mt-5 mr-3">
             <AccordionTab :header="$t('common.result_status')">
-                <ComputationStatusTab :status="status"/>
+                <ComputationStatusTab :status="status" />
             </AccordionTab>
 
             <AccordionTab :header="$t('result.header')">
@@ -36,15 +36,16 @@
                                sortField="result" :sortOrder="1">
                         <template #header>
                             <div class="flex flex-wrap align-items-center justify-content-end">
-                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle" @click="showDetails()"/>
+                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle"
+                                        @click="showDetails()" />
                             </div>
                         </template>
                         <Column sortable field="result" :header="$t('result.header')" class="font-bold"
-                                style="width: 15rem"/>
+                                style="width: 15rem" />
                         <Column v-for="(col, index) in splitPropsSingleResult(result)" :key="col"
                                 :header="$t('result.property') + ' ' + col">
                             <template #body="bdy">
-                                <SlicePropertyColumn :property="bdy.data.slice.content[index]"/>
+                                <SlicePropertyColumn :property="bdy.data.slice.content[index]" />
                             </template>
                         </Column>
                     </DataTable>
@@ -55,25 +56,21 @@
     </div>
 
     <Sidebar v-model:visible="detailView" position="right" class="" style="width: 50rem;">
-        <DetailCoverage/>
+        <DetailCoverage />
     </Sidebar>
 </template>
 
 <script setup lang="ts">
-import {type PropertySelection} from '~/types/rulefiles'
-import {
-    type SingleComputationResponse,
-    type ComputationStatus,
-    type ResultModel,
-} from '~/types/computations'
+import { type PropertySelection } from '~/types/rulefiles'
+import { type SingleComputationResponse, type ComputationStatus, type ResultModel, } from '~/types/computations'
 
 const appConfig = useAppConfig()
-const {isPresent, getId} = useCurrentRuleFile()
-const {currentSliceSelection} = useCurrentSliceSelection()
-const {flattenResult, splitPropsSingleResult} = useResult()
-const {getConstraintList} = useAdditionalConstraints()
-const {getCoverageConstraints, getPairwiseCoverage} = useCoverageConstraints()
-const {setJobId, initDetailSelection,} = useComputation()
+const { isPresent, getId } = useCurrentRuleFile()
+const { currentSliceSelection } = useCurrentSliceSelection()
+const { flattenResult, splitPropsSingleResult } = useResult()
+const { getConstraintList } = useAdditionalConstraints()
+const { getCoverageConstraints, getPairwiseCoverage } = useCoverageConstraints()
+const { setJobId, initDetailSelection, } = useComputation()
 
 const buttonActive = computed(() => isPresent())
 const openTopTabs = ref([1])

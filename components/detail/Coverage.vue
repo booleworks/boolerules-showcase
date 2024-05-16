@@ -1,6 +1,6 @@
 <template>
-    <DetailHeader/>
-    <Button class="mt-3" :label="$t('details.btn_compute')" icon="pi pi-info-circle" @click="computeDetails()"/>
+    <DetailHeader />
+    <Button class="mt-3" :label="$t('details.btn_compute')" icon="pi pi-info-circle" @click="computeDetails()" />
     <div v-if="details.mainResult" class="mt-5">
         <!--        <h3>{{ $t('details.optimum') }}</h3>-->
         <!--        <div> {{ details.mainResult.result }}</div>-->
@@ -9,7 +9,8 @@
         <DataTable :value="details.detail.detail.configurations">
             <Column field="coveredConstraints" :header="$t('details.covered_constraints')" style="vertical-align: top">
                 <template #body="slotProps">
-                    <div v-for="constraint of slotProps.data.coveredConstraints" class="covered-constraints mb-4">{{ constraint }}</div>
+                    <div v-for="constraint of slotProps.data.coveredConstraints"
+                         class="covered-constraints mb-4">{{ constraint }}</div>
                 </template>
             </Column>
             <Column field="configuration" :header="$t('details.example')" style="vertical-align: top">
@@ -41,10 +42,10 @@
 </template>
 
 <script setup lang="ts">
-import {type DetailRequest, type FeatureModel, type Slice} from '~/types/computations'
+import { type DetailRequest, type FeatureModel, type Slice } from '~/types/computations'
 
 const appConfig = useAppConfig()
-const {getDetailRequest, getJobId} = useComputation()
+const { getDetailRequest, getJobId } = useComputation()
 const details = ref({} as CoverageDetail)
 
 type CoverageDetail = {
