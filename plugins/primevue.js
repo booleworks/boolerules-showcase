@@ -13,12 +13,13 @@ import Calendar from 'primevue/calendar';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import AutoComplete from 'primevue/autocomplete';
+import Chips from 'primevue/chips';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import Sidebar from 'primevue/sidebar'
 
 export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.use(PrimeVue, { ripple: true });
+    nuxtApp.vueApp.use(PrimeVue, {ripple: true});
     nuxtApp.vueApp.component('Button', Button)
     nuxtApp.vueApp.component('FileUpload', FileUpload)
     nuxtApp.vueApp.component('Divider', Divider)
@@ -33,6 +34,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('DataTable', DataTable)
     nuxtApp.vueApp.component('Column', Column)
     nuxtApp.vueApp.component('AutoComplete', AutoComplete)
+    nuxtApp.vueApp.component('Chips', Chips)
     nuxtApp.vueApp.component('Accordion', Accordion)
     nuxtApp.vueApp.component('AccordionTab', AccordionTab)
     nuxtApp.vueApp.component('Sidebar', Sidebar)

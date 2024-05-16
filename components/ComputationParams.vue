@@ -4,14 +4,18 @@
             <tr v-if="additionalConstraints">
                 <td style="padding-right: 20px">{{ $t('common.add_const') }}</td>
                 <td>
-                    <AdditionalConstraints />
+                    <AdditionalConstraints/>
                 </td>
             </tr>
             <tr v-if="autocompleteFeatures">
                 <td>{{ $t('common.features') }}</td>
                 <td>
-                    <FeatureAutoComplete />
+                    <FeatureAutoComplete/>
                 </td>
+            </tr>
+            <tr v-if="coverageConstraints">
+                <td>{{ $t('common.coverageConstraints') }}</td>
+                <CoverageConstraints/>
             </tr>
         </table>
     </div>
@@ -20,10 +24,11 @@
 <script setup lang="ts">
 
 defineProps(
-    {
-        additionalConstraints: Boolean,
-        autocompleteFeatures: Boolean
-    }
+        {
+            additionalConstraints: Boolean,
+            autocompleteFeatures: Boolean,
+            coverageConstraints: Boolean
+        }
 )
 
 </script>

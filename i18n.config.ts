@@ -65,6 +65,8 @@ export default defineI18nConfig(() => ({
                 algdesc: 'Description',
                 add_const: 'Additional Constraints',
                 features: 'Features',
+                coverageConstraints: 'Constraints to Cover',
+                pairwiseCoverage: 'Require Pairwise Coverage',
                 result_status: 'Computation Status and Download',
             },
             comp_stat: {
@@ -117,6 +119,7 @@ export default defineI18nConfig(() => ({
                 feature: "Feature",
                 optimum: "Optimum",
                 used_weights: "Used Weights",
+                covered_constraints: "Constraints covered by the Configuration",
                 error: "Explanation could not be computed. Currently explanations are not supported for all types\
                 of computations, e.g. for ALL or ANY slices."
             },
@@ -186,6 +189,10 @@ export default defineI18nConfig(() => ({
                     desc: 'You can provide own weights per constraint and then compute a configuration\
             of minimal or maximal weight.  Such weights could be e.g. prices, masses, or\
             units of work.',
+                },
+                coverage: {
+                    btn_compute: 'Compute Coverage',
+                    desc: 'Compute the minimum number of configurations s.t. all the constraints are covered (separately or pairwise).'
                 }
             },
         },
@@ -251,6 +258,8 @@ export default defineI18nConfig(() => ({
                 algdesc: 'Beschreibung',
                 add_const: 'Zusätzliche Bedingungen',
                 features: 'Features',
+                coverageConstraints: 'Zu überdeckende Bedingungen',
+                pairwiseCoverage: 'Paarweise Überdeckung',
                 result_status: 'Berechnungs-Status und Download',
             },
             comp_stat: {
@@ -303,6 +312,7 @@ export default defineI18nConfig(() => ({
                 feature: "Feature",
                 optimum: "Optimum",
                 used_weights: "Ausgewählte Gewichtungen",
+                covered_constraints: "Von der Konfiguration erfüllte Bedingungen",
                 error: "Erklärung konnte nicht berechnet werden. Aktuell werden Erklärungen nicht für jede\
                 Berechnungsart unterstützt, z.B. für ANY oder ALL-Slices."
             },
@@ -370,6 +380,10 @@ export default defineI18nConfig(() => ({
                     desc: 'Eigene Gewichtungen können pro Constraint angegeben werden und damit\
             eine Konfiguration mit minimaler oder maximaler Gewichtung berechnet werden.\
             Eine solche Gewichtung könnten z.B. Preise, Gewichte oder Arbeitsstunden sein.',
+                },
+                coverage: {
+                    btn_compute: 'Berechne Überdeckung',
+                    desc: 'Berechne die minimale Anzahl an Konfigurationen, sodass alle Bedingungen (einzeln oder paarweise) abgedeckt sind.'
                 }
             },
         }
