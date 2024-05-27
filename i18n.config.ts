@@ -52,8 +52,7 @@ export default defineI18nConfig(() => ({
                 bulk: 'Bulk Check',
                 weights: 'Custom Weights',
                 coverage: 'Maximum Coverage',
-                pos_uniqueness: 'Position Uniqueness',
-                pos_dead: 'Dead Position Variants',
+                bomcheck: 'BOM Check',
                 pkg_buildability: 'Package Buildability',
                 pkg_solving: 'Package Solving',
                 pkg_optimization: 'Update Optimization',
@@ -186,6 +185,16 @@ export default defineI18nConfig(() => ({
                     desc: 'You can provide own weights per constraint and then compute a configuration\
             of minimal or maximal weight.  Such weights could be e.g. prices, masses, or\
             units of work.',
+                },
+                bom: {
+                    bom: "BOM (Bill Of Material)",
+                    constraint: 'Constraint',
+                    btn_edit_bom: "Edit BOM",
+                    positionId: "Position ID",
+                    pvId: "Position Variant ID",
+                    description: "Description",
+                    btn_compute_bom: "Compute Anomalies",
+                    btn_upload_bom: "Upload CSV File",
                 }
             },
         },
@@ -238,8 +247,7 @@ export default defineI18nConfig(() => ({
                 bulk: 'Massenprüfung',
                 weights: 'Eigene Gewichtungen',
                 coverage: 'Maximale Überdeckung',
-                pos_uniqueness: 'Positions-Eindeutigkeit',
-                pos_dead: 'Tote Positionsvarianten',
+                bomcheck: 'Stücklistenprüfung',
                 pkg_buildability: 'Paket Baubarkeit',
                 pkg_solving: 'Löse Paket-System',
                 pkg_optimization: 'Update Optimierung',

@@ -11,6 +11,8 @@ export default defineAppConfig({
     backbone: hostname + "/computation/backbone/synchronous",
     consistency: hostname + "/computation/consistency/synchronous",
     consistency_detail: hostname + "/computation/consistency/details",
+    bomcheck: hostname + "/computation/bomcheck/synchronous",
+    bomcheck_detail: hostname + "/computation/bomcheck/details",
     counting: hostname + "/computation/modelcount/synchronous",
     enumeration: hostname + "/computation/modelenumeration/synchronous",
 })

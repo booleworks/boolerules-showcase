@@ -1,10 +1,4 @@
-import {
-    type Feature,
-    type PropertyRange,
-    type PropertySelection,
-    type PropertyType,
-    type SlicingProperty
-} from '~/types/rulefiles'
+import {type Feature, type PropertyRange, type PropertySelection, type PropertyType, type SlicingProperty} from '~/types/rulefiles'
 
 // Specific datatypes
 
@@ -95,3 +89,15 @@ export type FeatureModel = {
     features: Feature[]
 }
 
+export type Position = {
+    positionId: string,
+    description: string,
+    constraint: string,
+    positionVariants: PositionVariant[]
+}
+
+export type PositionVariant = {
+    positionVariantId: string,
+    description: string,
+    constraint: string
+}
