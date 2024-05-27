@@ -3,7 +3,6 @@
     <DataTable :value="getPositions().value" showGridlines class="p-datatable-sm mb-3" scrollable
                scrollHeight="600px">
       <Column field="positionId" :header="$t('algo.bom.positionId')" sortable/>
-      <Column field="pvId" :header="$t('algo.bom.pvId')" sortable/>
       <Column field="description" :header="$t('algo.bom.description')" sortable/>
       <Column field="constraint" :header="$t('algo.bom.constraint')" sortable/>
     </DataTable>
