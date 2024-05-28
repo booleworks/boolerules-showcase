@@ -9,7 +9,7 @@
     <div class="flex flex-grow-1 align-items-center">
       <FileUpload mode="basic" uploadIcon="pi pi-cloud-upload" :auto="true" :multiple="false" name="positions[]"
                   accept=".csv" customUpload @uploader="uploadBom"
-                  :chooseLabel="$t('algo.bom.btn_upload_bom ')"/>
+                  :chooseLabel="$t('algo.bom.btn_upload_bom')"/>
     </div>
   </div>
 </template>

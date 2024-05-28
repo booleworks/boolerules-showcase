@@ -5,7 +5,7 @@
     <!-- Top panels -->
     <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">
       <AccordionTab :header="$t('common.algdesc')">
-        <p style="width: 60%;" v-html="$t('algo.bomcheck.desc')"/>
+        <p style="width: 60%;" v-html="$t('algo.bom.desc')"/>
       </AccordionTab>
 
       <AccordionTab :header="$t('slices.selection')">
@@ -40,7 +40,7 @@
           <DataTable :value="result" rowGroupMode="rowspan" groupRowsBy="element" resizableColumns
                      columnResizeMode="expand" showGridlines sortField="element" :sortOrder="1"
                      class="p-datatable-sm mt-3 pb-3">
-            <Column field="element" :header="$t('algo.bomcheck.combination')">
+            <Column field="element" :header="$t('algo.bom.combination')">
               <template #body="slotProps">
                 <div class="flex align-items-center gap-2">
                   <FeatureModelColumn :model="slotProps.data.element.content"/>
@@ -63,16 +63,16 @@
 
 <script setup lang="ts">
 import {type PropertySelection} from '~/types/rulefiles'
-import {type ComputationStatus, type FeatureModel, type ListComputationResponse, type ListResultModel,} from '~/types/computations'
+import {type ComputationStatus, type FeatureModel, type ListComputationResponse, type ListResultModel, type Position,} from '~/types/computations'
 
 const appConfig = useAppConfig()
 const {isPresent, getId} = useCurrentRuleFile()
 const {currentSliceSelection} = useCurrentSliceSelection()
 const {flattenListResult, splitPropsListResult} = useResult()
 const {getConstraintList} = useAdditionalConstraints()
-const {getSelectedFeatures} = useFeatureSelection()
+const {getPositions} = useBom()
 
-const buttonActive = computed(() => isPresent() && getSelectedFeatures().value.length > 0)
+const buttonActive = computed(() => isPresent() && getPositions().value.length > 0)
 const openTopTabs = ref([1])
 const openResultTabs = ref([] as number[])
 const showBom = ref(false)
@@ -84,20 +84,23 @@ const status = ref({} as ComputationStatus)
 type BomCheckResultModel = ListResultModel<Boolean, FeatureModel>
 
 type BomCheckResponse = ListComputationResponse<Boolean, FeatureModel>
+type ComputationType = 'UNIQUENESS' | 'COMPLETENESS' | 'DEAD_PV'
 
 type BomCheckRequest = {
   ruleFileId: string
   sliceSelection: PropertySelection[]
-  features: String[]
   additionalConstraints: string[]
+  computationTypes: ComputationType[]
+  positions: Position[]
 }
 
 function compute() {
   const request: BomCheckRequest = {
     ruleFileId: getId(),
     sliceSelection: currentSliceSelection(),
-    features: getSelectedFeatures().value.map(f => f.fullName),
-    additionalConstraints: getConstraintList()
+    additionalConstraints: getConstraintList(),
+    computationTypes: ['UNIQUENESS', 'COMPLETENESS', 'DEAD_PV'],
+    positions: getPositions().value
   }
   performComputation(request)
 }

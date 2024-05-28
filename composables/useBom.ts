@@ -30,7 +30,8 @@ export default () => {
                                 let position = {
                                     positionId: posId,
                                     description: parts[2],
-                                    constraint: parts[3]
+                                    constraint: parts[3],
+                                    positionVariants: []
                                 } as Position
                                 bomPositions.value.push(position)
                             }
