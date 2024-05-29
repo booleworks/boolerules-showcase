@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column w-full">
-        <AlgorithmHeader :header="$t('computation.coverage')" boolFeature enumFeature />
+        <AlgorithmHeader :header="$t('computation.coverage')" boolFeature />
 
         <!-- Top panels -->
         <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">
@@ -9,7 +9,7 @@
             </AccordionTab>
 
             <AccordionTab :header="$t('slices.selection')">
-                <SliceSelection defaultSliceType="SPLIT" :allowedSliceTypes="['SPLIT', 'ANY', 'ALL']" />
+                <SliceSelection defaultSliceType="SPLIT" :allowedSliceTypes="['SPLIT']" />
             </AccordionTab>
         </Accordion>
 
@@ -40,8 +40,10 @@
                                         @click="showDetails()" />
                             </div>
                         </template>
-                        <Column sortable field="result" :header="$t('result.header')" class="font-bold"
-                                style="width: 15rem" />
+                        <Column sortable field="result.requiredConfigurations" :header="$t('algo.coverage.header_required_configurations')"
+                                class="font-bold" style="width: 10rem" />
+                        <Column sortable field="result.uncoverableConstraints" :header="$t('algo.coverage.header_uncoverable_constraints')"
+                                class="font-bold" style="width: 10rem" />
                         <Column v-for="(col, index) in splitPropsSingleResult(result)" :key="col"
                                 :header="$t('result.property') + ' ' + col">
                             <template #body="bdy">
@@ -89,8 +91,13 @@ type CoverageRequest = {
     pairwiseCover: boolean
 }
 
+type CoverageMainResult = {
+    requiredConfigurations: number,
+    uncoverableConstraints: number,
+}
+
 type CoverageResponse = SingleComputationResponse<number>
-type CoverageResultModel = ResultModel<number>
+type CoverageResultModel = ResultModel<CoverageMainResult>
 
 async function compute() {
     const request: CoverageRequest = {

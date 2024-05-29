@@ -66,6 +66,8 @@ export default defineI18nConfig(() => ({
                 add_const: 'Additional Constraints',
                 features: 'Features',
                 coverageConstraints: 'Constraints to Cover',
+                coverageConstraintsUpload: 'Upload Constraints',
+                coverageConstraintsTooltip: 'Enter Constraints in PRL syntax and submit them with `Enter`',
                 pairwiseCoverage: 'Require Pairwise Coverage',
                 result_status: 'Computation Status and Download',
             },
@@ -192,7 +194,9 @@ export default defineI18nConfig(() => ({
                 },
                 coverage: {
                     btn_compute: 'Compute Coverage',
-                    desc: 'Compute the minimum number of configurations s.t. all the constraints are covered (separately or pairwise).'
+                    desc: 'Compute the minimum number of configurations s.t. all the constraints are covered (separately or pairwise).',
+                    header_required_configurations: 'Required Configurations',
+                    header_uncoverable_constraints: 'Uncoverable Constraints',
                 }
             },
         },
@@ -259,6 +263,8 @@ export default defineI18nConfig(() => ({
                 add_const: 'Zusätzliche Bedingungen',
                 features: 'Features',
                 coverageConstraints: 'Zu überdeckende Bedingungen',
+                coverageConstraintsUpload: 'Bedingungen hochladen',
+                coverageConstraintsTooltip: 'Bedingungen in PRL Syntax eingeben und mit `Enter` hinzufügen',
                 pairwiseCoverage: 'Paarweise Überdeckung',
                 result_status: 'Berechnungs-Status und Download',
             },
@@ -383,7 +389,9 @@ export default defineI18nConfig(() => ({
                 },
                 coverage: {
                     btn_compute: 'Berechne Überdeckung',
-                    desc: 'Berechne die minimale Anzahl an Konfigurationen, sodass alle Bedingungen (einzeln oder paarweise) abgedeckt sind.'
+                    desc: 'Berechne die minimale Anzahl an Konfigurationen, sodass alle Bedingungen (einzeln oder paarweise) abgedeckt sind.',
+                    header_required_configurations: 'Benötigte Konfigurationen',
+                    header_uncoverable_constraints: 'Nicht-baubare Bedingungen',
                 }
             },
         }
