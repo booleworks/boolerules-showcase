@@ -1,11 +1,8 @@
 <template>
     <DetailHeader />
     <Button class="mt-3" :label="$t('details.btn_compute')" icon="pi pi-info-circle" @click="computeDetails()" />
+    <Button class="mt-3 ml-3" :label="'Compute Graph'" icon="pi pi-info-circle" @click="computeGraph()" />
     <div v-if="details.mainResult" class="mt-5">
-        <!--        <h3>{{ $t('details.optimum') }}</h3>-->
-        <!--        <div> {{ details.mainResult.result }}</div>-->
-
-        <!--        <h3>{{ $t('details.used_weights') }}</h3>-->
         <DataTable :value="details.detail.detail.configurations">
             <Column field="coveredConstraints" :header="$t('details.covered_constraints')" style="vertical-align: top">
                 <template #body="slotProps">
@@ -39,6 +36,13 @@
             </Column>
         </DataTable>
     </div>
+    <div v-if="graphData.labels" class="mt-5">
+<!--        <DataTable :value="graphData.coverableConstraints">-->
+        <!--            <Column field="numberOfConfigurations" :header="'numberOfConfigurations'" style="vertical-align: top"></Column>-->
+        <!--            <Column field="maxCoverableConstraints" :header="'maxCoverableConstraints'" style="vertical-align: top"></Column>-->
+        <!--        </DataTable>-->
+        <Chart type="bar" :data="graphData" :options="chartOptions()" />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -47,6 +51,7 @@ import { type DetailRequest, type FeatureModel, type Slice } from '~/types/compu
 const appConfig = useAppConfig()
 const { getDetailRequest, getJobId } = useComputation()
 const details = ref({} as CoverageDetail)
+const graphData = ref({})
 
 type CoverageDetail = {
     mainResult: { result: number }
@@ -58,12 +63,22 @@ type CoverageDetail = {
     }
 }
 
+type CoverageGraph = {
+    coverableConstraints: [
+        {
+            numberOfConfigurations: number,
+            maxCoverableConstraints: number,
+        }
+    ]
+}
+
 type CoveringConfiguration = {
     configuration: FeatureModel
     coveredConstraints: string[]
 }
 
 async function computeDetails() {
+    graphData.value = {}
     const request: DetailRequest = {
         jobId: getJobId(),
         sliceSelection: getDetailRequest()
@@ -74,6 +89,79 @@ async function computeDetails() {
     }).then((res) => {
         details.value = res as CoverageDetail
     })
+}
+
+async function computeGraph() {
+    details.value = {} as CoverageDetail
+    const request: DetailRequest = {
+        jobId: getJobId(),
+        sliceSelection: getDetailRequest()
+    }
+    $fetch(appConfig.coverage_graph, {
+        method: 'POST',
+        body: request,
+    }).then((res) => {
+        const graph = res as CoverageGraph
+        graphData.value = {
+            labels: graph.coverableConstraints.map(c => c.numberOfConfigurations),
+            datasets: [
+                {
+                    label: 'Coverable Constraints',
+                    data: graph.coverableConstraints.map(c => c.maxCoverableConstraints),
+                    // backgroundColor: ['rgba(249, 115, 22, 0.2)', 'rgba(6, 182, 212, 0.2)', 'rgb(107, 114, 128, 0.2)'],
+                    // borderColor: ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)'],
+                    // borderWidth: 1
+                }
+            ]
+        }
+    })
+}
+
+const chartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+    return {
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                },
+                title: {
+                    display: true,
+                    text: 'Configurations',
+                    color: textColor
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                },
+                title: {
+                    display: true,
+                    text: 'Coverable Constraints',
+                    color: textColor
+                }
+            }
+        }
+    };
 }
 </script>
 

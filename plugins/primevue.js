@@ -19,6 +19,7 @@ import AccordionTab from 'primevue/accordiontab';
 import Sidebar from 'primevue/sidebar';
 import Tooltip from 'primevue/tooltip';
 import Message from 'primevue/message';
+import Chart from 'primevue/chart';
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -41,5 +42,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('AccordionTab', AccordionTab)
     nuxtApp.vueApp.component('Sidebar', Sidebar)
     nuxtApp.vueApp.component('Message', Message)
+    nuxtApp.vueApp.component('Chart', Chart)
     nuxtApp.vueApp.directive('Tooltip', Tooltip)
 });
