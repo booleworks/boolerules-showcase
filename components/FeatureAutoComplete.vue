@@ -1,24 +1,22 @@
 <template>
     <div class="feature-autocomplete">
-        <AutoComplete v-model="selectedFeatures" option-label="uniqueName" multiple :suggestions="features"
-            @complete="searchFeature" class="w-30rem" />
+        <AutoComplete v-model="selectedFeatures" multiple :suggestions="features" @complete="searchFeature"
+            class="w-30rem" />
     </div>
 </template>
 
 <script setup lang="ts">
 import { type AutoCompleteCompleteEvent } from 'primevue/autocomplete'
-import type { FeatureName } from "~/types/rulefiles";
 
 const { getFeatures } = useCurrentRuleFile()
 const { getSelectedFeatures } = useFeatureSelection()
 
-const features = ref([] as FeatureName[])
+const features = ref([] as string[])
 const selectedFeatures = getSelectedFeatures()
 
 const searchFeature = (event: AutoCompleteCompleteEvent) => {
     features.value = getFeatures().filter(
-        (item) => item.uniqueName.includes(event.query) &&
-            !selectedFeatures.value.map((sel) => sel.uniqueName).includes(item.uniqueName),
+        (item) => item.includes(event.query) && !selectedFeatures.value.includes(item),
     )
 }
 </script>

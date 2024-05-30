@@ -94,7 +94,7 @@ function compute() {
     const request: EnumerationRequest = {
         ruleFileId: getId(),
         sliceSelection: currentSliceSelection(),
-        features: getSelectedFeatures().value.map(f => f.fullName),
+        features: getSelectedFeatures().value,
         additionalConstraints: getConstraintList()
     }
     performComputation(request)

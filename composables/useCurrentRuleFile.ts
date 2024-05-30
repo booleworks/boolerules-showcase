@@ -1,4 +1,4 @@
-import { type FeatureName, type UploadSummary } from '~/types/rulefiles'
+import { type UploadSummary } from '~/types/rulefiles'
 
 const PRLFILE = 'prlFile'
 const uploadSummary = ref(useSessionStorage(PRLFILE, {} as UploadSummary))
@@ -22,7 +22,7 @@ export default () => {
         return uploadSummary.value.id != null
     }
 
-    const getFeatures = (): FeatureName[] => {
+    const getFeatures = (): string[] => {
         return uploadSummary.value.features
     }
 

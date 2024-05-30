@@ -109,7 +109,7 @@ function compute() {
         ruleFileId: getId(),
         sliceSelection: currentSliceSelection(),
         additionalConstraints: getConstraintList(),
-        features: getSelectedFeatures().value.map(f => f.fullName),
+        features: getSelectedFeatures().value,
     }
     performComputation(request)
 }

@@ -1,8 +1,6 @@
-import type { FeatureName } from "~/types/rulefiles";
-
 const FEATURE_SELECTION = 'featureSelection'
 
-const selectedFeatures = ref(useSessionStorage(FEATURE_SELECTION, [] as FeatureName[]))
+const selectedFeatures = ref(useSessionStorage(FEATURE_SELECTION, [] as string[]))
 
 export default () => {
 
