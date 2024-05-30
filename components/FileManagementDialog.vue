@@ -1,14 +1,13 @@
 <template>
     <div>
-        <DataTable :value="ruleFiles" v-model:selection="selectedFile" showGridlines class="p-datatable-sm mb-3" scrollable
-            scrollHeight="600px" selectionMode="single" sortField="timestamp" :sortOrder="-1">
+        <DataTable :value="ruleFiles" v-model:selection="selectedFile" showGridlines class="p-datatable-sm mb-3"
+            scrollable scrollHeight="600px" selectionMode="single" sortField="timestamp" :sortOrder="-1">
             <Column field="fileName" :header="$t('rulefilemgmt.filename')" sortable />
             <Column field="timestamp" :header="$t('rulefilemgmt.uploaded')" sortable>
                 <template #body="bdy">
                     {{ formatTimestamp(bdy.data.timestamp) }}
                 </template>
             </Column>
-            <Column field="numberOfModules" :header="$t('rulefilemgmt.modules')" sortable />
             <Column field="numberOfFeatures" :header="$t('rulefilemgmt.features')" sortable />
             <Column field="numberOfRules" :header="$t('rulefilemgmt.rules')" sortable />
             <Column field="hasBooleanFeatures" :header="$t('rulefilemgmt.bool_features')" sortable style="width: 8rem">
@@ -37,8 +36,8 @@
             <div class="flex flex-grow-1"></div>
             <Button :label="$t('rulefilemgmt.btn_load')" icon="pi pi-cloud-download" severity="success" class="mr-2"
                 :disabled="!selectedFile.id" @click="selectFile" />
-            <Button :label="$t('rulefilemgmt.btn_delete')" icon="pi pi-trash" severity="danger" :disabled="!selectedFile.id"
-                @click="deleteRuleFile" />
+            <Button :label="$t('rulefilemgmt.btn_delete')" icon="pi pi-trash" severity="danger"
+                :disabled="!selectedFile.id" @click="deleteRuleFile" />
         </div>
     </div>
 </template>

@@ -5,11 +5,13 @@
                 <img :src="currentLogo()" alt="Logo" width="200" />
             </a>
         </div>
-        <div class="menu-header"><i class="pi pi pi-fw pi-file"></i> {{ $t('computation.header_rulefile').toUpperCase() }}
+        <div class="menu-header"><i class="pi pi pi-fw pi-file"></i> {{ $t('computation.header_rulefile').toUpperCase()
+            }}
         </div>
         <MenuItem v-for="algo in rulefileAlgos" :item="algo" />
-        <div class="menu-header"><i class="pi pi pi-fw pi-box"></i>{{ $t('computation.header_configuration').toUpperCase()
-        }}
+        <div class="menu-header"><i class="pi pi pi-fw pi-box"></i>{{
+            $t('computation.header_configuration').toUpperCase()
+            }}
         </div>
         <MenuItem v-for="algo in configurationAlgos" :item="algo" />
         <div class="menu-header"><i class="pi pi pi-fw pi-sort-amount-down"></i>{{
@@ -58,7 +60,6 @@ const optimizationAlgos = ref([
 //   { label: t('computation.pkg_optimization'), to: '' },
 // ])
 // const visualizationAlgos = ref([
-//   { label: t('computation.module_graph'), to: '' },
 //   { label: t('computation.constraint_graph'), to: '' },
 //   { label: t('computation.feature_cloud'), to: '' },
 // ])

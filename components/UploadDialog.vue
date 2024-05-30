@@ -36,10 +36,6 @@
                 <div class="col-10">{{ summary.id }}</div>
             </div>
             <div class="grid">
-                <div class="col-2"><b>{{ $t('rulefilemgmt.modules') }}</b></div>
-                <div class="col-10">{{ summary.numberOfModules }}</div>
-            </div>
-            <div class="grid">
                 <div class="col-2"><b>{{ $t('rulefilemgmt.features') }}</b></div>
                 <div class="col-10">{{ summary.numberOfFeatures }}</div>
             </div>

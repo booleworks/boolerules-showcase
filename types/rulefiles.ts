@@ -3,14 +3,13 @@ export type UploadSummary = {
     fileName: string
     size: number
     timestamp: string,
-    numberOfModules: number
     numberOfRules: number
     numberOfFeatures: number
     hasBooleanFeatures: boolean
     hasEnumFeatures: boolean
     hasIntFeatures: boolean
     slicingProperties: SlicingProperty[]
-    features: FeatureName[]
+    features: string[]
 
     errors: string[]
     warnings: string[]
@@ -21,11 +20,6 @@ export type SlicingProperty = {
     name: string
     type: PropertyType
     range: PropertyRange
-}
-
-export type FeatureName = {
-    uniqueName: string
-    fullName: string
 }
 
 export type PropertyRange = {
@@ -54,7 +48,6 @@ export type FeatureType = 'BOOLEAN' | 'VERSIONED_BOOLEAN' | 'ENUM' | 'INT'
 
 export type Feature = {
     code: string
-    fullName: string
     type: FeatureType
     booleanValue?: boolean
     version?: number
@@ -64,7 +57,6 @@ export type Feature = {
 
 export type Rule = {
     rule: string,
-    module?: string,
     id?: string,
     description?: string,
     lineNumber?: number,
