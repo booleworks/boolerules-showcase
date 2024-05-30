@@ -48,7 +48,7 @@ const configurationAlgos = ref([
 ])
 const optimizationAlgos = ref([
     { label: t('computation.weights'), to: '/computation/optimization/optimization' },
-    // { label: t('computation.coverage'), to: '' },
+    { label: t('computation.coverage'), to: '/computation/optimization/coverage' },
 ])
 // const bomAlgos = ref([
 //   { label: t('computation.pos_uniqueness'), to: '' },

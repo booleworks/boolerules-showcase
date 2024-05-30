@@ -1,7 +1,7 @@
 <template>
     <DetailHeader />
-    <Button v-if="getDetailSelection().length > 0" class="mt-3" :label="$t('details.btn_compute')" icon="pi pi-info-circle"
-        @click="computeDetails()" />
+    <Button v-if="getDetailSelection().length > 0" class="mt-3" :label="$t('details.btn_compute')"
+            icon="pi pi-info-circle" @click="computeDetails()" />
     <div v-if="error.length == 0">
         <div v-if="details.mainResult" class="mt-5">
             <h3>{{ $t('details.result') }}</h3>

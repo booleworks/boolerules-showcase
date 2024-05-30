@@ -13,4 +13,7 @@ export default defineAppConfig({
     consistency_detail: hostname + "/computation/consistency/details",
     counting: hostname + "/computation/modelcount/synchronous",
     enumeration: hostname + "/computation/modelenumeration/synchronous",
+    coverage: hostname + "/computation/coverage/synchronous",
+    coverage_detail: hostname + "/computation/coverage/details",
+    coverage_graph: hostname + "/computation/coverage/graph"
 })
