@@ -1,7 +1,7 @@
 <template>
     <DetailHeader />
     <Button class="mt-3" :label="$t('details.btn_compute')" icon="pi pi-info-circle" @click="computeDetails()" />
-    <Button class="mt-3 ml-3" :label="'Compute Graph'" icon="pi pi-info-circle" @click="computeGraph()" />
+    <Button class="mt-3 ml-3" :label="$t('details.btn_compute_graph')" icon="pi pi-info-circle" @click="computeGraph()" />
     <div v-if="details.mainResult" class="mt-5">
         <DataTable :value="details.detail.detail.configurations">
             <Column field="coveredConstraints" :header="$t('details.covered_constraints')" style="vertical-align: top">
@@ -48,6 +48,7 @@
 <script setup lang="ts">
 import { type DetailRequest, type FeatureModel, type Slice } from '~/types/computations'
 
+const { t } = useI18n();
 const appConfig = useAppConfig()
 const { getDetailRequest, getJobId } = useComputation()
 const details = ref({} as CoverageDetail)
@@ -106,7 +107,7 @@ async function computeGraph() {
             labels: graph.coverableConstraints.map(c => c.numberOfConfigurations),
             datasets: [
                 {
-                    label: 'Coverable Constraints',
+                    label: t('algo.coverage.graph_coverable_constraints'),
                     data: graph.coverableConstraints.map(c => c.maxCoverableConstraints),
                     // backgroundColor: ['rgba(249, 115, 22, 0.2)', 'rgba(6, 182, 212, 0.2)', 'rgb(107, 114, 128, 0.2)'],
                     // borderColor: ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)'],
@@ -142,7 +143,7 @@ const chartOptions = () => {
                 },
                 title: {
                     display: true,
-                    text: 'Configurations',
+                    text: t('algo.coverage.configurations_axis'),
                     color: textColor
                 }
             },
@@ -156,7 +157,7 @@ const chartOptions = () => {
                 },
                 title: {
                     display: true,
-                    text: 'Coverable Constraints',
+                    text: t('algo.coverage.coverable_constraints_axis'),
                     color: textColor
                 }
             }

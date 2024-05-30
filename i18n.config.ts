@@ -105,6 +105,7 @@ export default defineI18nConfig(() => ({
                 desc: "Select a single slice and compute it's detailed results for this computation.",
                 btn_show: "Show Details",
                 btn_compute: "Compute Details",
+                btn_compute_graph: "Compute Graph",
                 result: "Result",
                 example: "Example Configuration",
                 explanation: "Conflict Explanation",
@@ -197,6 +198,9 @@ export default defineI18nConfig(() => ({
                     desc: 'Compute the minimum number of configurations s.t. all the constraints are covered (separately or pairwise).',
                     header_required_configurations: 'Required Configurations',
                     header_uncoverable_constraints: 'Uncoverable Constraints',
+                    graph_coverable_constraints: 'Coverable Constraints',
+                    configurations_axis: 'Configurations',
+                    coverable_constraints_axis: 'Coverable Constraints',
                 }
             },
         },
@@ -302,6 +306,7 @@ export default defineI18nConfig(() => ({
                 desc: "Wähle eine einzelne Slice aus und berechne die Details zur aktuellen Berechnung.",
                 btn_show: "Zeige Details an",
                 btn_compute: "Berechne Details",
+                btn_compute_graph: "Berechne Graph",
                 result: "Ergebnis",
                 example: "Beispielkonfiguration",
                 explanation: "Konflikterklärung",
@@ -392,6 +397,9 @@ export default defineI18nConfig(() => ({
                     desc: 'Berechne die minimale Anzahl an Konfigurationen, sodass alle Bedingungen (einzeln oder paarweise) abgedeckt sind.',
                     header_required_configurations: 'Benötigte Konfigurationen',
                     header_uncoverable_constraints: 'Nicht-baubare Bedingungen',
+                    graph_coverable_constraints: 'Überdeckbare Bedingungen',
+                    configurations_axis: 'Konfigurationen',
+                    coverable_constraints_axis: 'Überdeckbare Bedingungen',
                 }
             },
         }
