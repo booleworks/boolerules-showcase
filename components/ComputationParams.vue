@@ -13,22 +13,15 @@
                     <FeatureAutoComplete />
                 </td>
             </tr>
-            <tr v-if="coverageConstraints">
-                <td>{{ $t('common.coverageConstraints') }}</td>
-                <CoverageConstraints />
-            </tr>
         </table>
     </div>
 </template>
 
 <script setup lang="ts">
-
 defineProps(
     {
         additionalConstraints: Boolean,
         autocompleteFeatures: Boolean,
-        coverageConstraints: Boolean
     }
 )
-
 </script>

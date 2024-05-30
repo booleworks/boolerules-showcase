@@ -7,12 +7,14 @@ import {
 } from '~/types/rulefiles'
 
 // Specific datatypes
-
 export type WeightPair = {
     constraint: string
     weight: number
 }
 
+export type Constraint = {
+    constraint: string
+}
 
 // Generic computation datatypes
 export type SingleComputationResponse<MAIN> = {

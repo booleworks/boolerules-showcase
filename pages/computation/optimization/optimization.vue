@@ -16,8 +16,16 @@
         <!-- Computation paramters & button -->
         <ClientOnly>
             <div class="flex-column">
-                <Button :label="$t('algo.optimization.btn_edit_weights')" icon="pi pi-table" severity="warning" class="mb-3"
-                    @click="showWeightsDialog()" />
+                <div class="flex">
+                    <Button :label="$t('algo.optimization.btn_edit_weights')" icon="pi pi-table" severity="warning"
+                        class="mb-3 mr-3" @click="showWeightsDialog()" />
+                    <div v-if="getCustomWeights().value.length > 0" class="mb-3 align-content-center">
+                        {{ $t('algo.optimization.loaded_weights') + ": " + getCustomWeights().value.length }}
+                    </div>
+                    <div v-else class="mb-3 align-content-center">
+                        {{ $t('algo.optimization.no_weights') }}
+                    </div>
+                </div>
                 <ComputationParams weights additionalConstraints />
                 <div class="flex">
                     <div class="flex align-items-center">
@@ -30,7 +38,8 @@
             </div>
         </ClientOnly>
 
-        <Dialog v-model:visible="showWeights" modal :header="$t('algo.optimization.weightings')" :style="{ width: '80vw' }">
+        <Dialog v-model:visible="showWeights" modal :header="$t('algo.optimization.weightings')"
+            :style="{ width: '80vw' }">
             <WeightsDialog />
         </Dialog>
 
@@ -46,7 +55,8 @@
                         sortField="result" :sortOrder="1">
                         <template #header>
                             <div class="flex flex-wrap align-items-center justify-content-end">
-                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle" @click="showDetails()" />
+                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle"
+                                    @click="showDetails()" />
                             </div>
                         </template>
                         <Column sortable field="result" :header="$t('result.header')" class="font-bold"

@@ -62,10 +62,6 @@ export default defineI18nConfig(() => ({
                 algdesc: 'Description',
                 add_const: 'Additional Constraints',
                 features: 'Features',
-                coverageConstraints: 'Constraints to Cover',
-                coverageConstraintsUpload: 'Upload Constraints',
-                coverageConstraintsTooltip: 'Enter Constraints in PRL syntax and submit them with `Enter`',
-                pairwiseCoverage: 'Require Pairwise Coverage',
                 result_status: 'Computation Status and Download',
             },
             comp_stat: {
@@ -185,12 +181,19 @@ export default defineI18nConfig(() => ({
                     btn_compute_min: 'Compute Minimal Weight',
                     btn_compute_max: 'Compute Maximal Weight',
                     btn_upload_weights: "Upload CSV File",
+                    loaded_weight: 'Loaded weights',
+                    no_weights: 'Did not yet load any weights',
                     desc: 'You can provide own weights per constraint and then compute a configuration\
             of minimal or maximal weight.  Such weights could be e.g. prices, masses, or\
             units of work.',
                 },
                 coverage: {
+                    btn_edit_constraints: "Edit constraints",
                     btn_compute: 'Compute Coverage',
+                    btn_upload_constraints: 'Upload Constraints',
+                    constraints: 'Constraints',
+                    loaded_constraints: 'Loaded constraints',
+                    no_constraints: 'Did not yet load any constraints',
                     desc: 'Compute the minimum number of configurations s.t. all the constraints are covered (separately or pairwise).',
                     header_required_configurations: 'Required Configurations',
                     header_uncoverable_constraints: 'Uncoverable Constraints',
@@ -256,10 +259,6 @@ export default defineI18nConfig(() => ({
                 algdesc: 'Beschreibung',
                 add_const: 'Zusätzliche Bedingungen',
                 features: 'Features',
-                coverageConstraints: 'Zu überdeckende Bedingungen',
-                coverageConstraintsUpload: 'Bedingungen hochladen',
-                coverageConstraintsTooltip: 'Bedingungen in PRL Syntax eingeben und mit `Enter` hinzufügen',
-                pairwiseCoverage: 'Paarweise Überdeckung',
                 result_status: 'Berechnungs-Status und Download',
             },
             comp_stat: {
@@ -377,12 +376,19 @@ export default defineI18nConfig(() => ({
                     btn_compute_min: 'Berechne Minimale Gewichtung',
                     btn_compute_max: 'Berechne Maximale Gewichtung',
                     btn_upload_weights: "Lade CSV Datei hoch",
+                    loaded_weight: 'Geladene Gewichtungen',
+                    no_weights: 'Noch keine Gewichtungen geladen',
                     desc: 'Eigene Gewichtungen können pro Constraint angegeben werden und damit\
             eine Konfiguration mit minimaler oder maximaler Gewichtung berechnet werden.\
             Eine solche Gewichtung könnten z.B. Preise, Gewichte oder Arbeitsstunden sein.',
                 },
                 coverage: {
+                    btn_edit_constraints: "Bearbeite Constraints",
                     btn_compute: 'Berechne Überdeckung',
+                    btn_upload_constraints: 'Lade CSV Datei hoch',
+                    constraints: 'Constraints',
+                    no_constraints: 'Noch keine Constraints geladen',
+                    loaded_constraints: 'Geladene Constraints',
                     desc: 'Berechne die minimale Anzahl an Konfigurationen, sodass alle Bedingungen (einzeln oder paarweise) abgedeckt sind.',
                     header_required_configurations: 'Benötigte Konfigurationen',
                     header_uncoverable_constraints: 'Nicht-baubare Bedingungen',
