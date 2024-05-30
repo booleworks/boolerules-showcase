@@ -181,7 +181,7 @@ export default defineI18nConfig(() => ({
                     btn_compute_min: 'Compute Minimal Weight',
                     btn_compute_max: 'Compute Maximal Weight',
                     btn_upload_weights: "Upload CSV File",
-                    loaded_weight: 'Loaded weights',
+                    loaded_weights: 'Loaded weights',
                     no_weights: 'Did not yet load any weights',
                     desc: 'You can provide own weights per constraint and then compute a configuration\
             of minimal or maximal weight.  Such weights could be e.g. prices, masses, or\
@@ -376,7 +376,7 @@ export default defineI18nConfig(() => ({
                     btn_compute_min: 'Berechne Minimale Gewichtung',
                     btn_compute_max: 'Berechne Maximale Gewichtung',
                     btn_upload_weights: "Lade CSV Datei hoch",
-                    loaded_weight: 'Geladene Gewichtungen',
+                    loaded_weights: 'Geladene Gewichtungen',
                     no_weights: 'Noch keine Gewichtungen geladen',
                     desc: 'Eigene Gewichtungen können pro Constraint angegeben werden und damit\
             eine Konfiguration mit minimaler oder maximaler Gewichtung berechnet werden.\

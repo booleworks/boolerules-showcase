@@ -37,7 +37,7 @@ export default () => {
                     propertyName: prop.property,
                     propertyType: prop.propertyType,
                     possibleValues: possibleValues,
-                    selectedValue: {}
+                    selectedValue: firstValue(possibleValues)
                 } as DetailSliceSelection))
             } else {
                 anyOrAllSlices.value = true
@@ -86,6 +86,32 @@ export default () => {
     const getDetailSelection = (): DetailSliceSelection[] => {
         return currentSliceSelection.value
     }
+
+    function firstValue(possibleValues: PropertyRange | undefined): SingleRange {
+        if (possibleValues === undefined) {
+            return {}
+        }
+        if (possibleValues.intMin) {
+            return { intValue: possibleValues.intMin } as SingleRange
+        }
+        if (possibleValues.intValues) {
+            return { intValue: possibleValues.intValues[0] } as SingleRange
+        }
+        if (possibleValues.dateMin) {
+            return { dateValue: possibleValues.dateMin } as SingleRange
+        }
+        if (possibleValues.dateValues) {
+            return { dateValue: possibleValues.dateValues[0] } as SingleRange
+        }
+        if (possibleValues.enumValues) {
+            return { enumValue: possibleValues.enumValues[0] } as SingleRange
+        }
+        if (possibleValues.booleanValues) {
+            return { booleanValue: possibleValues.booleanValues[0] } as SingleRange
+        }
+        return {}
+    }
+
 
     return { setJobId, getJobId, initDetailSelection, getDetailSelection, getDetailRequest, containsAnyOrAllSplits };
 };
