@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column w-full">
-        <AlgorithmHeader :header="$t('computation.counting')" boolFeature enumFeature />
+        <AlgorithmHeader :header="$t('computation.counting')" boolFeature enumFeature intFeature />
 
         <!-- Top panels -->
         <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">
@@ -121,4 +121,3 @@ async function performComputation(request: ModelCountRequest) {
     max-width: 50% !important;
 }
 </style>
-

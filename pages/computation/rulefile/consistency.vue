@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column w-full">
-        <AlgorithmHeader :header="$t('computation.consistency')" boolFeature enumFeature />
+        <AlgorithmHeader :header="$t('computation.consistency')" boolFeature enumFeature intFeature />
 
         <!-- Top panels -->
         <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">
@@ -18,8 +18,8 @@
             <div class="flex-column">
                 <ComputationParams additionalConstraints />
                 <div class="flex">
-                    <Button class="mt-2" :label="$t('algo.consistency.btn_compute')" @click="compute()" icon="pi pi-desktop"
-                        :disabled="!buttonActive" />
+                    <Button class="mt-2" :label="$t('algo.consistency.btn_compute')" @click="compute()"
+                        icon="pi pi-desktop" :disabled="!buttonActive" />
                 </div>
             </div>
         </ClientOnly>
@@ -35,7 +35,8 @@
                     <DataTable :value="result" scrollable showGridlines class="p-datatable-sm mt-3 pb-3">
                         <template #header>
                             <div class="flex flex-wrap align-items-center justify-content-end">
-                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle" @click="showDetails()" />
+                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle"
+                                    @click="showDetails()" />
                             </div>
                         </template>
                         <Column field="result" sortable :header="$t('result.header')" class="font-bold"

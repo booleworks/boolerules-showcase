@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column w-full">
-        <AlgorithmHeader :header="$t('computation.coverage')" boolFeature />
+        <AlgorithmHeader :header="$t('computation.coverage')" boolFeature enumFeature intFeature />
 
         <!-- Top panels -->
         <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">

@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column w-full">
-        <AlgorithmHeader :header="$t('computation.minmax')" boolFeature enumFeature />
+        <AlgorithmHeader :header="$t('computation.minmax')" boolFeature enumFeature intFeature />
 
         <!-- Top panels -->
         <Accordion :multiple="true" :activeIndex="openTopTabs" class="mt-5 mr-3 mb-5">
@@ -40,7 +40,8 @@
                         sortField="result" :sortOrder="1">
                         <template #header>
                             <div class="flex flex-wrap align-items-center justify-content-end">
-                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle" @click="showDetails()" />
+                                <Button :label="$t('details.btn_show')" icon="pi pi-info-circle"
+                                    @click="showDetails()" />
                             </div>
                         </template>
                         <Column sortable field="result" :header="$t('result.header')" class="font-bold"
