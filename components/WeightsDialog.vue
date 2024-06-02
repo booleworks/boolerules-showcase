@@ -2,7 +2,7 @@
     <div>
         <DataTable :value="getCustomWeights().value" showGridlines class="p-datatable-sm mb-3" scrollable
             scrollHeight="600px">
-            <Column field="constraint" :header="$t('algo.optimization.constraint')" sortable />
+            <Column field="constraint" :header="$t('common.constraint')" sortable />
             <Column field="weight" :header="$t('algo.optimization.weighting')" sortable />
         </DataTable>
         <div class="flex flex-grow-1 align-items-center">

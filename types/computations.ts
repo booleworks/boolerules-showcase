@@ -16,6 +16,10 @@ export type Constraint = {
     constraint: string
 }
 
+export type Configuration = {
+    features: { feature: string }[]
+}
+
 // Generic computation datatypes
 export type SingleComputationResponse<MAIN> = {
     status: ComputationStatus
@@ -96,4 +100,3 @@ export type ResultModel<MAIN> = {
 export type FeatureModel = {
     features: Feature[]
 }
-

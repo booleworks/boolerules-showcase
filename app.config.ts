@@ -15,5 +15,6 @@ export default defineAppConfig({
     enumeration: hostname + "/computation/modelenumeration/synchronous",
     coverage: hostname + "/computation/coverage/synchronous",
     coverage_detail: hostname + "/computation/coverage/details",
-    coverage_graph: hostname + "/computation/coverage/graph"
+    coverage_graph: hostname + "/computation/coverage/graph",
+    reconfiguration: hostname + "/computation/reconfiguration/synchronous",
 })

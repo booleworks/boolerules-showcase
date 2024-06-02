@@ -9,7 +9,7 @@
             </AccordionTab>
 
             <AccordionTab :header="$t('slices.selection')">
-                <SliceSelection defaultSliceType="SPLIT" :allowedSliceTypes="['SPLIT']" />
+                <SliceSelection defaultSliceType="SPLIT" :allowedSliceTypes="['SPLIT']" :only-single-slice="false" />
             </AccordionTab>
         </Accordion>
 
@@ -26,7 +26,7 @@
                         {{ $t('algo.coverage.no_constraints') }}
                     </div>
                 </div>
-                <ComputationParams weights additionalConstraints />
+                <ComputationParams additionalConstraints />
                 <div class="flex">
                     <Button class="mt-2" :label="$t('algo.coverage.btn_compute')" @click="compute()"
                         icon="pi pi-desktop" :disabled="!buttonActive" />

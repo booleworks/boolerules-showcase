@@ -6,13 +6,14 @@
                     <tr v-if="isPresent()">
                         <th class="font-bold text-left" style="padding-right: 2rem">{{ $t('slices.property').toUpperCase()
                         }}</th>
-                        <th class="font-bold text-left">{{ $t('slices.type').toUpperCase() }}</th>
+                        <th v-if="!onlySingleSlice" class="font-bold text-left">{{ $t('slices.type').toUpperCase() }}</th>
                         <th class="font-bold text-left">{{ $t('slices.slice').toUpperCase() }}</th>
                         <th class="font-bold text-left">{{ $t('slices.sel').toUpperCase() }}</th>
                     </tr>
                     <tr v-for="slice in getSummary().slicingProperties">
                         <SliceSelector :slice="slice" :selection="selectionForProperty(slice.name, defaultSliceType)"
-                            :defaultSliceType="defaultSliceType" :allowedSliceTypes="allowedSliceTypes" />
+                            :defaultSliceType="defaultSliceType" :allowedSliceTypes="allowedSliceTypes"
+                            :only-single-slice="onlySingleSlice"/>
                     </tr>
                 </table>
             </div>
@@ -35,6 +36,7 @@ const { selectionForProperty } = useCurrentSliceSelection()
 defineProps<{
     defaultSliceType: SliceType
     allowedSliceTypes: SliceType[]
+    onlySingleSlice: boolean
 }>()
 </script>
 

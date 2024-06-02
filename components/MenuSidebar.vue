@@ -43,6 +43,7 @@ const rulefileAlgos = ref([
 ])
 const configurationAlgos = ref([
     { label: t('computation.minmax'), to: '/computation/configuration/minmax' },
+    { label: t('computation.reconfiguration'), to: '/computation/configuration/reconfiguration' },
     // { label: t('computation.constraints'), to: '' },
     // { label: t('computation.bulk'), to: '' },
 ])

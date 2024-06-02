@@ -7,7 +7,7 @@
 
         <h3>{{ $t('details.used_weights') }}</h3>
         <DataTable :value="details.detail.detail.usedWeightings">
-            <Column field="constraint" :header="$t('algo.optimization.constraint')" sortable />
+            <Column field="constraint" :header="$t('common.constraint')" sortable />
             <Column field="weight" :header="$t('algo.optimization.weighting')" sortable />
         </DataTable>
 

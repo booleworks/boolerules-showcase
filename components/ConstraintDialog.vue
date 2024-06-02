@@ -2,7 +2,7 @@
     <div>
         <DataTable :value="getCustomConstraints()" showGridlines class="p-datatable-sm mb-3" scrollable
             scrollHeight="600px">
-            <Column field="constraint" :header="$t('algo.optimization.constraint')" />
+            <Column field="constraint" :header="$t('common.constraint')" />
         </DataTable>
         <div class="flex flex-grow-1 align-items-center">
             <FileUpload mode="basic" uploadIcon="pi pi-cloud-upload" :auto="true" :multiple="false" name="weights[]"
