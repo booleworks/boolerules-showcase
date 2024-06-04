@@ -41,7 +41,7 @@ export default () => {
                             positions[0].positionVariants.push({
                                 positionVariantId: pvId,
                                 description: parts[2],
-                                constraint: parts[2]
+                                constraint: parts[3]
                             } as PositionVariant)
                         } else if (positions.length < 1) {
                             // TODO no position error
