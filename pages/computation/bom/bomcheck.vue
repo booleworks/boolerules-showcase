@@ -30,6 +30,7 @@
       <BomDialog/>
     </Dialog>
 
+    <!-- Result panels -->
     <Accordion :multiple="true" :activeIndex="openResultTabs" class="mt-5 mr-3">
       <AccordionTab :header="$t('common.result_status')">
         <ComputationStatusTab :status="status"/>
@@ -43,7 +44,7 @@
             <Column field="element" :header="$t('algo.bom.combination')">
               <template #body="slotProps">
                 <div class="flex align-items-center gap-2">
-                  <FeatureModelColumn :model="slotProps.data.element.content"/>
+                  <FeatureSpan :feature="slotProps.data.element.content" :showTag="true"/>
                 </div>
               </template>
             </Column>
@@ -63,7 +64,7 @@
 
 <script setup lang="ts">
 import {type PropertySelection} from '~/types/rulefiles'
-import {type ComputationStatus, type FeatureModel, type ListComputationResponse, type ListResultModel, type Position,} from '~/types/computations'
+import {type ComputationStatus, type ListComputationResponse, type ListResultModel, type Position,} from '~/types/computations'
 
 const appConfig = useAppConfig()
 const {isPresent, getId} = useCurrentRuleFile()
@@ -81,9 +82,6 @@ const result = ref({} as BomCheckResultModel[])
 const status = ref({} as ComputationStatus)
 
 // data types
-type BomCheckResultModel = ListResultModel<Boolean, FeatureModel>
-
-type BomCheckResponse = ListComputationResponse<Boolean, FeatureModel>
 type ComputationType = 'UNIQUENESS' | 'COMPLETENESS' | 'DEAD_PV'
 
 type BomCheckRequest = {
@@ -92,6 +90,24 @@ type BomCheckRequest = {
   additionalConstraints: string[]
   computationTypes: ComputationType[]
   positions: Position[]
+}
+type BomCheckResultModel = ListResultModel<BomCheckAlgorithmsResult, PositionElementDO>
+
+type BomCheckResponse = ListComputationResponse<BomCheckAlgorithmsResult, PositionElementDO>
+
+type BomCheckAlgorithmsResult = {
+  isComplete: boolean
+  hasNonUniquePVs: boolean
+  hasDeadPvs: boolean
+}
+
+type PositionElementDO = {
+  positionId: string
+  description: string
+  constraint: string
+  isComplete: boolean
+  hasNonUniquePVs: boolean
+  hasDeadPvs: boolean
 }
 
 function compute() {
