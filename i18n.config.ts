@@ -194,6 +194,9 @@ export default defineI18nConfig(() => ({
                     pvId: 'Position Variant ID',
                     description: 'Description',
                     combination: 'Combination',
+                    isComplete: 'Empty Hits',
+                    hasNonUniquePVs: 'Double Hits',
+                    hasDeadPvs: 'Not buildable PVs',
                     btn_compute_bom: 'Compute Anomalies',
                     btn_upload_bom: 'Upload CSV File',
                     desc: 'You can provide a bill of material (BOM) an compute three types of anomalies: \
@@ -334,6 +337,22 @@ export default defineI18nConfig(() => ({
                     forbidden: 'Verbotenes Feature',
                     mandatory: 'Zwingendes Feature',
                     optional: 'Optionales Feature',
+                },
+                bom: {
+                    bom: 'Stückliste (BOM = engl. Bill Of Material)',
+                    constraint: 'Constraint',
+                    btn_edit_bom: 'BOM Bearbeiten',
+                    positionId: 'Positions-ID',
+                    pvId: 'Positionsvarianten-ID',
+                    description: 'Beschreibung',
+                    combination: 'Kombination',
+                    isComplete: 'Leertreffer',
+                    hasNonUniquePVs: 'Doppeltreffer',
+                    hasDeadPvs: 'Nicht baubare PVs',
+                    btn_compute_bom: 'Berechne Anomalien',
+                    btn_upload_bom: 'CSV Datei hochladen',
+                    desc: 'Sie können eine Stückliste hochladen und drei Arten von Anomalien darauf berechnen: \
+                    nicht-baubare Positionvarianten, nicht-eindeutige Positionsvarianten (Doppeltreffer) und positionen die nicht vollständig definiert sind (Leertreffer beinhalten).',
                 },
                 consistency: {
                     check_details: 'Berechne Details',

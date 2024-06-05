@@ -35,17 +35,30 @@
       <AccordionTab :header="$t('common.result_status')">
         <ComputationStatusTab :status="status"/>
       </AccordionTab>
-
+      
       <AccordionTab :header="$t('result.header')">
         <div v-if="status.success">
           <DataTable :value="result" rowGroupMode="rowspan" groupRowsBy="element" resizableColumns
                      columnResizeMode="expand" showGridlines sortField="element" :sortOrder="1"
                      class="p-datatable-sm mt-3 pb-3">
-            <Column field="element" :header="$t('algo.bom.combination')">
-              <template #body="slotProps">
-                <div class="flex align-items-center gap-2">
-                  <FeatureSpan :feature="slotProps.data.element.content" :showTag="true"/>
-                </div>
+            <Column field="element.content.positionId" :header="$t('algo.bom.combination')"></Column>
+            <Column field="element.content.description" :header="$t('algo.bom.description')"></Column>
+            <Column :header="$t('algo.bom.isComplete')">
+              <template #body="bdy">
+                <span v-if="bdy.data.element.content.isComplete" class="pi pi-check text-green-500"></span>
+                <span v-else class="pi pi-times text-red-500"></span>
+              </template>
+            </Column>
+            <Column :header="$t('algo.bom.hasNonUniquePVs')">
+              <template #body="bdy">
+                <span v-if="bdy.data.element.content.hasNonUniquePVs" class="pi pi-check text-green-500"></span>
+                <span v-else class="pi pi-times text-red-500"></span>
+              </template>
+            </Column>
+            <Column :header="$t('algo.bom.hasDeadPvs')">
+              <template #body="bdy">
+                <span v-if="bdy.data.element.content.hasDeadPvs" class="pi pi-check text-green-500"></span>
+                <span v-else class="pi pi-times text-red-500"></span>
               </template>
             </Column>
             <Column v-for="(col, index) in splitPropsListResult(result)" :key="col"
